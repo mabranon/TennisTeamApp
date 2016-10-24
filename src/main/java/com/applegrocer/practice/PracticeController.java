@@ -39,7 +39,13 @@ public class PracticeController implements Initializable {
     @FXML
     private TableColumn<PracticeSession, Date> colDate; 
     @FXML
-    private TableColumn<PracticeSession, String> colName; 
+    private TableColumn<PracticeSession, Integer> colOpen; 
+    @FXML
+    private TableColumn<PracticeSession, Integer> colCap; 
+    @FXML
+    private TableColumn<PracticeSession, PracticeType> colType; 
+    @FXML
+    private TableColumn<PracticeSession, String> colCoach; 
     @FXML
     private Button btnNewPractice;
     
@@ -47,8 +53,7 @@ public class PracticeController implements Initializable {
     private void createNewPracticeAction(ActionEvent e) throws IOException{
         Stage stage;
         Parent root;
-        if(e.getSource()==btnNewPractice){
-            
+        if(e.getSource()==btnNewPractice){           
             stage = new Stage();
             root=FXMLLoader.load(getClass().getResource("/fxml/AddPractice.fxml"));
             stage.setScene(new Scene(root));
@@ -66,17 +71,29 @@ public class PracticeController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         ObservableList<PracticeSession> data = FXCollections.observableArrayList();
         try {
-           data.add(new PracticeSession("Steve", "12:30 PM, 10/21/2016"));
-           data.add(new PracticeSession("Bob", "10:30 AM, 10/23/2016"));
-           data.add(new PracticeSession("Mary", "3:00 PM, 10/22/2016"));
-           data.add(new PracticeSession("Samantha", "12:30 PM, 10/18/2016"));
+           data.add(new PracticeSession("12:30 PM, 10/21/2016", 2, 5, 
+                   PracticeType.SERVING, "Bob"));
+           data.add(new PracticeSession("10:30 AM, 10/23/2016", 1, 10, 
+                   PracticeType.VOLLEY, "Jerry"));
+           data.add(new PracticeSession("3:00 PM, 10/22/2016", 8, 9, 
+                   PracticeType.FOREHAND, "Mary"));
+           data.add(new PracticeSession("12:30 PM, 10/18/2016", 6, 12, 
+                   PracticeType.FOREHAND, "Samantha"));
         } catch (ParseException ex) {
             Logger.getLogger(PracticeController.class.getName()).log(Level.SEVERE, null, ex);
         }
         table.setItems(data);
         
-        colDate.setCellValueFactory(new PropertyValueFactory<PracticeSession, Date>("time"));
-        colName.setCellValueFactory(new PropertyValueFactory<PracticeSession, String>("name"));
+        colDate.setCellValueFactory(
+                new PropertyValueFactory<PracticeSession, Date>("time"));
+        colCoach.setCellValueFactory(
+                new PropertyValueFactory<PracticeSession, String>("coachName"));
+        colOpen.setCellValueFactory(
+                new PropertyValueFactory<PracticeSession, Integer>("open"));
+        colCap.setCellValueFactory(
+                new PropertyValueFactory<PracticeSession, Integer>("maxCap"));
+        colType.setCellValueFactory(new PropertyValueFactory
+                <PracticeSession, PracticeType>("type"));
     }    
     
 }

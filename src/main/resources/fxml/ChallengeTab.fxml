@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<VBox alignment="TOP_CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.applegrocer.challenge.ChallengeTabController">
+   <children>
+      <TableView fx:id="table" prefHeight="934.0" prefWidth="1587.0">
+        <columns>
+          <TableColumn fx:id="colPlayer1" prefWidth="200.0" text="Player One" />
+          <TableColumn fx:id="colPlayer2" prefWidth="200.0" text="Player 2" />
+            <TableColumn fx:id="colDate" prefWidth="400.0" text="Date" />
+        </columns>
+      </TableView>
+   </children>
+   <padding>
+      <Insets bottom="20.0" top="20.0" />
+   </padding>
+</VBox>

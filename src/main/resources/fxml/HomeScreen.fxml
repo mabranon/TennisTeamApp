@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
@@ -9,16 +10,14 @@
 
 <AnchorPane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.applegrocer.homescreen.HomeScreenController">
   <children>
-    <VBox prefHeight="999.9999000000025" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="1620.0" AnchorPane.topAnchor="80.0" >
-      <children>
-        <ListView fx:id="rankList" prefHeight="1080.0" minWidth="300.0" VBox.vgrow="ALWAYS"/>
-      </children>
+    <VBox prefHeight="1080.0" prefWidth="280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="1600.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <fx:include source="RankList.fxml" />
+         </children>
+         <padding>
+            <Insets left="20.0" />
+         </padding>
     </VBox>
-    <Label layoutX="46.0" layoutY="27.0" text="Player Rankings">
-      <font>
-        <Font size="30.0" />
-      </font>
-    </Label>
     <TabPane layoutX="300.0" layoutY="14.0" prefHeight="1080.0" prefWidth="1620.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
       <tabs>
         <Tab closable="false" disable="false" text="Practice Sessions">
@@ -33,12 +32,12 @@
         </Tab>
         <Tab text="Challenges">
           <content>
-            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            <fx:include prefHeight="1052.0" source="ChallengeTab.fxml" />
           </content>
         </Tab>
         <Tab text="Player Roster">
           <content>
-            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            <fx:include prefHeight="1052.0" source="Roster.fxml" />
           </content>
         </Tab>
         <Tab text="Messages">
@@ -47,6 +46,9 @@
           </content>
         </Tab>
       </tabs>
+         <padding>
+            <Insets right="20.0" top="10.0" />
+         </padding>
     </TabPane>
   </children>
 </AnchorPane>

@@ -3,28 +3,29 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.applegrocer.homescreen;
+package com.applegrocer.roster;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ListView;
 
 /**
  * FXML Controller class
  *
  * @author AppleGrocer
  */
-public class HomeScreenController implements Initializable {
+public class EditPlayerController implements Initializable {
 
-    @FXML
-    private ListView rankList;
-
+    public void init(Player player){
+        
+    }
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-    }
+        // TODO
+    }    
+    
 }

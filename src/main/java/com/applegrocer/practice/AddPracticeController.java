@@ -10,12 +10,13 @@ import java.io.IOException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import jfxtras.scene.control.CalendarPicker;
@@ -28,11 +29,7 @@ import jfxtras.scene.control.CalendarPicker;
 public class AddPracticeController implements Initializable {
 
     @FXML
-    TextField textHours;
-    @FXML
-    TextField textMins;
-    @FXML
-    ChoiceBox cBoxAmPm;
+    ChoiceBox chBoxType;
     @FXML
     Button btnSave;
     @FXML
@@ -41,7 +38,8 @@ public class AddPracticeController implements Initializable {
     GridPane pneGrid;
 
     CalendarPicker timePicker;
-    SimpleDateFormat format = new SimpleDateFormat("EEEE, MMMM/dd/yyyy, hh:mm aa");
+    SimpleDateFormat format = 
+            new SimpleDateFormat("EEEE, MMMM/dd/yyyy, hh:mm aa");
     
     @FXML
     private void btnAction(ActionEvent e) throws IOException{
@@ -51,7 +49,9 @@ public class AddPracticeController implements Initializable {
             stage=(Stage)this.btnCancel.getScene().getWindow();
             stage.close();
         }else if(e.getSource()==this.btnSave){
-            System.out.println(this.format.format(this.timePicker.getCalendar().getTime()));
+            System.out.println(this.format.format(this.timePicker.getCalendar()
+                    .getTime()));
+            System.out.println(chBoxType.getValue());
             stage=(Stage)this.btnSave.getScene().getWindow();
             stage.close();
         }
@@ -64,6 +64,15 @@ public class AddPracticeController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         this.timePicker = new TimePicker().getTimePicker();
         this.pneGrid.add(this.timePicker, 0, 0);
+        
+        ObservableList<PracticeType> typeList = FXCollections
+                .observableArrayList();
+        typeList.add(PracticeType.VOLLEY);
+        typeList.add(PracticeType.BACKHAND);
+        typeList.add(PracticeType.FOREHAND);
+        typeList.add(PracticeType.SERVING);
+        
+        this.chBoxType.setItems(typeList);
     }    
     
 }

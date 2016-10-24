@@ -12,18 +12,20 @@
     <children>
         <GridPane fx:id="pneGrid" prefHeight="300.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.rowIndex="1">
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.rowIndex="2">
                <children>
                   <Button fx:id="btnSave" mnemonicParsing="false" onAction="#btnAction" text="Save" />
                   <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#btnAction" text="Cancel" />
                </children>
             </HBox>
+            <ChoiceBox fx:id="chBoxType" prefWidth="150.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
             </children>
             <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             </columnConstraints>
             <rowConstraints>
-                <RowConstraints maxHeight="277.0" minHeight="0.0" prefHeight="277.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="277.0" minHeight="0.0" prefHeight="270.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="277.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="233.0" minHeight="10.0" prefHeight="78.0" vgrow="SOMETIMES" />
             </rowConstraints>
          <padding>
