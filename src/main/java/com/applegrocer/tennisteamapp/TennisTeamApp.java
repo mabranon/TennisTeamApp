@@ -23,7 +23,8 @@ public class TennisTeamApp extends Application {
         
         Scene scene = new Scene(root);
         
-        stage.setMaximized(true);
+        stage.setFullScreen(true);
+        stage.setFullScreenExitHint("");
         stage.setTitle("Welcome to Tennis Thing");
         stage.setScene(scene);
         stage.show();

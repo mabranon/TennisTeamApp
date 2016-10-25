@@ -18,9 +18,6 @@ import javafx.scene.control.ListView;
  */
 public class HomeScreenController implements Initializable {
 
-    @FXML
-    private ListView rankList;
-
     /**
      * Initializes the controller class.
      */
